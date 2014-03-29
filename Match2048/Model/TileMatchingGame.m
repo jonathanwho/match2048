@@ -102,6 +102,7 @@
   self.numChosen++;
   if (tile.isChosen) {
     tile.chosen = false;
+    self.score -= tile.value; // Deduct Points
   } else if (self.numChosen < MAX_NUM_CHOSEN) {
     tile.chosen = true;
   } else {
