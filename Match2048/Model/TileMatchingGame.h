@@ -19,7 +19,7 @@
 @property(nonatomic, strong, readonly) UIColor *defaultColor;
 
 // The current score of the game.
-@property(nonatomic, readonly) uint score;
+@property(nonatomic, readonly) int score;
 
 // True if a "2048" tile was made, False otherwise.
 @property(nonatomic, getter = isOver) BOOL over;

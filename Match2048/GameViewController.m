@@ -99,7 +99,7 @@
   }
   
   self.scoreLabel.text = [NSString stringWithFormat:SCORE_FORMAT, self.game.score];
-  if (self.game.isOver && (int)self.game.score > self.highScore) {
+  if (self.game.isOver && (!self.highScore || self.game.score > self.highScore)) {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setInteger:self.game.score forKey:HIGHSCORE_KEY];
     self.highScore = self.game.score;

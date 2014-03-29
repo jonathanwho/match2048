@@ -19,7 +19,7 @@
 @property(nonatomic, readwrite) uint numChosen;
 @property(nonatomic, strong) NSDictionary *backgroundColors;
 @property(nonatomic, strong, readwrite) UIColor *defaultColor;
-@property(nonatomic, readwrite) uint score;
+@property(nonatomic, readwrite) int score;
 @end
 
 @implementation TileMatchingGame
