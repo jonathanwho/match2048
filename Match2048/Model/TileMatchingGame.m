@@ -14,12 +14,16 @@
 #define MAX_NUM_CHOSEN 2
 #define DEFAULT_NEW_VALUE 2
 #define WINNING_TILE 2048
+#define HINT_PENALTY 2048
 
 @interface TileMatchingGame()
 @property(nonatomic, readwrite) uint numChosen;
 @property(nonatomic, strong) NSDictionary *backgroundColors;
 @property(nonatomic, strong, readwrite) UIColor *defaultColor;
 @property(nonatomic, readwrite) int score;
+
+// The number of times |showHint| was called.
+@property (nonatomic) int numHints;
 @end
 
 @implementation TileMatchingGame
@@ -86,6 +90,7 @@
   self.numChosen = 0;
   self.score = 0;
   self.over = NO;
+  self.numHints = 0;
 }
 
 - (void) chooseTileAtIndex:(uint)index {
@@ -139,5 +144,9 @@
   if (value >= MIN_COLORED_VALUE)
     return [UIColor whiteColor];
   return [[UIColor alloc] initWithRed:119/255.0 green:110/255.0 blue:101/255.0 alpha:1.0];
+}
+
+- (void) showHint {
+  self.score -= HINT_PENALTY * ++self.numHints;
 }
 @end

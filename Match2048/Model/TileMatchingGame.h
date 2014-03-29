@@ -38,4 +38,7 @@
 
 // Resets the game
 - (void) newGame;
+
+// Deducts penalty for showing hint.
+- (void) showHint;
 @end

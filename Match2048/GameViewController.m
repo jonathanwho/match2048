@@ -29,9 +29,23 @@
 
 // The device highscore.
 @property (nonatomic) int highScore;
+
 @end
 
 @implementation GameViewController
+- (IBAction)showHint {
+  [self.game showHint];
+  for (UIButton *button in self.tileButtons) {
+    Tile *tile = [self.game tileAtIndex:[self.tileButtons indexOfObject:button]];
+    UIColor *backgroundColor = [self.game getBackgroundColorForValue:tile.value];
+    [UIView animateWithDuration:COLOR_ANIMATION_SPEED animations:^{
+      button.backgroundColor = backgroundColor;
+      if (!tile.isChosen)
+        button.backgroundColor = self.game.defaultColor;
+    }];
+  }
+  [self updateUI];
+}
 
 - (IBAction)startNewGame:(UIButton *)sender {
   [self.game newGame];
