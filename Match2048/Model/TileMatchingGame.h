@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 @class Tile;
 @interface TileMatchingGame : NSObject
+
 @property(strong, nonatomic) NSMutableArray *tiles;
 @property(nonatomic, readonly) uint numChosen;
 @property(nonatomic, strong, readonly) UIColor *defaultColor;
