@@ -84,6 +84,7 @@
   self.tiles = nil;
   self.numChosen = 0;
   self.score = 0;
+  self.over = NO;
 }
 
 - (void) chooseTileAtIndex:(uint)index {
