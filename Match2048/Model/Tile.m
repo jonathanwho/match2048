@@ -10,9 +10,8 @@
 
 @implementation Tile
 
-- (instancetype) initWithId:(uint)id value:(uint)value {
+- (instancetype) initWithValue:(uint)value {
    self = [super init];
-   self.id = id;
    self.value = value;
    self.chosen = false;
    return self;

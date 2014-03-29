@@ -10,10 +10,9 @@
 
 @interface Tile : NSObject
 
-@property(nonatomic) uint id; // TODO: Deprecate 
 @property(nonatomic) uint value;
 @property(nonatomic, getter = isChosen) BOOL chosen;
 
-- (instancetype) initWithId:(uint)id value:(uint) value;
+- (instancetype) initWithValue:(uint) value;
 
 @end

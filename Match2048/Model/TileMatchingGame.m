@@ -48,12 +48,10 @@ int const MAX_COLORED_VALUE = 4096;
 /**
  * Creates an array of tiles from an array of integers.
  */
-- (NSMutableArray*) tilesWithValues:(NSArray*) values {
+- (NSMutableArray *) tilesWithValues:(NSArray *) values {
    NSMutableArray *data = [[NSMutableArray alloc] init];
-   int id = 0;
-   for (NSNumber *value in values) {
-      [data addObject:[[Tile alloc] initWithId:id value:value.intValue]];
-   }
+   for (NSNumber *value in values)
+      [data addObject:[[Tile alloc] initWithValue:value.intValue]];
    return data;
 }
 
