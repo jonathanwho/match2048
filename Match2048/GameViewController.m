@@ -13,12 +13,17 @@
 #define LARGE_CORNER_RADIUS 5.0
 #define SMALL_CORNER_RADIUS 2.0
 #define COLOR_ANIMATION_SPEED 0.75
+#define HIGHSCORE_KEY @"High Score Key"
+#define SCORE_FORMAT @"SCORE: %d"
+#define HIGHSCORE_FORMAT @"HIGHSCORE: %d"
 
 @interface GameViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *tileButtons;
 @property (nonatomic, strong) TileMatchingGame *game;
 @property (weak, nonatomic) IBOutlet UIButton *startNewGameButton;
-@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel; 
+@property (nonatomic) int highScore;
+@property (weak, nonatomic) IBOutlet UILabel *highScoreLabel;
 @end
 
 @implementation GameViewController
@@ -37,6 +42,9 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  self.highScore = [defaults integerForKey:HIGHSCORE_KEY];
+  [self.highScoreLabel setText:[NSString stringWithFormat:HIGHSCORE_FORMAT, self.highScore]];
   self.tileContainer.layer.cornerRadius = LARGE_CORNER_RADIUS;
   self.tileContainer.layer.masksToBounds = YES;
   self.startNewGameButton.layer.cornerRadius = LARGE_CORNER_RADIUS;
@@ -82,7 +90,13 @@
       button.backgroundColor = backgroundColor;
     }];
     [button setTitle:title forState:UIControlStateNormal];
-    self.scoreLabel.text = [NSString stringWithFormat:@"SCORE: %d", self.game.score];
+  }
+  self.scoreLabel.text = [NSString stringWithFormat:SCORE_FORMAT, self.game.score];
+  if (self.game.isOver && (int)self.game.score > self.highScore) {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:self.game.score forKey:HIGHSCORE_KEY];
+    self.highScore = self.game.score;
+    [self.highScoreLabel setText:[NSString stringWithFormat:HIGHSCORE_FORMAT, self.game.score]];
   }
 }
 @end

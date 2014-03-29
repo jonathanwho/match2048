@@ -13,6 +13,7 @@
 #define MAX_COLORED_VALUE 4096
 #define MAX_NUM_CHOSEN 2
 #define DEFAULT_NEW_VALUE 2
+#define WINNING_TILE 2048
 
 @interface TileMatchingGame()
 @property(nonatomic, readwrite) uint numChosen;
@@ -104,7 +105,9 @@
     for (Tile *other in self.tiles) {
       if (other.isChosen) {
         if (other.value == tile.value) {
-          self.score += (tile.value = tile.value * 2);
+          if (tile.value * 2 == WINNING_TILE)
+            self.over = YES; 
+          self.score += (tile.value *= 2);
           other.value = DEFAULT_NEW_VALUE;
         } else {
           self.score -= other.value;

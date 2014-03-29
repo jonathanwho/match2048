@@ -14,6 +14,7 @@
 @property(nonatomic, readonly) uint numChosen;
 @property(nonatomic, strong, readonly) UIColor *defaultColor;
 @property(nonatomic, readonly) uint score;
+@property(nonatomic, getter = isOver) BOOL over;
 
 - (void) chooseTileAtIndex:(uint) index;
 - (Tile *) tileAtIndex:(uint) index;

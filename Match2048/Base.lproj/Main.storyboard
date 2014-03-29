@@ -257,6 +257,13 @@
                                 <color key="textColor" cyan="0.52000000000000002" magenta="0.47999999999999998" yellow="0.46000000000000002" black="0.17999999999999999" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HIGHSCORE: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5Y-28-MlE">
+                                <rect key="frame" x="20" y="448" width="180" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cyan="0.52000000000000002" magenta="0.47999999999999998" yellow="0.46000000000000002" black="0.17999999999999999" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Match two tiles to double one of their values. Tile 2048 wins." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="O8H-eA-oQd">
                                 <rect key="frame" x="20" y="394" width="280" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -268,6 +275,7 @@
                         <color key="backgroundColor" cyan="0.01" magenta="0.01" yellow="0.059999999999999998" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                     </view>
                     <connections>
+                        <outlet property="highScoreLabel" destination="L5Y-28-MlE" id="w8l-Bp-grN"/>
                         <outlet property="scoreLabel" destination="Pry-E5-ajx" id="SRm-0b-vli"/>
                         <outlet property="startNewGameButton" destination="1kO-Mh-Rg5" id="mtd-0h-9CV"/>
                         <outlet property="tileContainer" destination="au6-Yx-eR6" id="QJB-ua-gxe"/>
