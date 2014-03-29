@@ -250,10 +250,18 @@
                                     <action selector="startNewGame:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="nVt-f2-b4e"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SCORE: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pry-E5-ajx">
+                                <rect key="frame" x="20" y="392" width="180" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cyan="0.28000000000000003" magenta="0.28000000000000003" yellow="0.35999999999999999" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cyan="0.01" magenta="0.01" yellow="0.059999999999999998" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                     </view>
                     <connections>
+                        <outlet property="scoreLabel" destination="Pry-E5-ajx" id="SRm-0b-vli"/>
                         <outlet property="startNewGameButton" destination="1kO-Mh-Rg5" id="mtd-0h-9CV"/>
                         <outlet property="tileContainer" destination="au6-Yx-eR6" id="QJB-ua-gxe"/>
                         <outletCollection property="tileButtons" destination="3sd-Zx-f6Y" id="KV1-Qx-I92"/>

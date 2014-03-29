@@ -13,6 +13,7 @@
 @property(nonatomic, readwrite) uint numChosen;
 @property(nonatomic, strong) NSDictionary *backgroundColors;
 @property(nonatomic, strong, readwrite) UIColor *defaultColor;
+@property(nonatomic, readwrite) uint score;
 @end
 
 int const MIN_COLORED_VALUE = 8;
@@ -88,7 +89,8 @@ int const MAX_COLORED_VALUE = 4096;
    if (self.numChosen == 2) {  // Ensures both tiles are displayed before clearing
       self.numChosen = 0;
       for (Tile *other in self.tiles)
-         if (other.isChosen) other.chosen = false;
+         if (other.isChosen)
+            other.chosen = false;
    }
    
    self.numChosen++;
@@ -99,10 +101,13 @@ int const MAX_COLORED_VALUE = 4096;
       tile.chosen = true;
    } else {
       for (Tile *other in self.tiles) {
-         if (other.isChosen && other.value == tile.value) {
-            tile.value = tile.value * 2;
-            other.value = 2;
-            break;
+         if (other.isChosen) {
+            if (other.value == tile.value) {
+               self.score += (tile.value = tile.value * 2);
+               other.value = 2;
+            } else {
+               self.score -= other.value;
+            }
          }
       }
       tile.chosen = true;

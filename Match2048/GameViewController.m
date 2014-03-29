@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *tileButtons;
 @property (nonatomic, strong) TileMatchingGame *game;
 @property (weak, nonatomic) IBOutlet UIButton *startNewGameButton;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @end
 
 @implementation GameViewController
@@ -69,6 +70,7 @@
       [button setTitleColor:[self.game getTitleColorForValue:tile.value] forState:UIControlStateNormal];
       [button setBackgroundColor:backgroundColor];
       [button setTitle:title forState:UIControlStateNormal];
+      [self.scoreLabel setText:[NSString stringWithFormat:@"SCORE: %d", self.game.score]];
    }
 }
 @end

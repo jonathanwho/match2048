@@ -12,6 +12,7 @@
 @property(strong, nonatomic) NSMutableArray *tiles;
 @property(nonatomic, readonly) uint numChosen;
 @property(nonatomic, strong, readonly) UIColor *defaultColor;
+@property(nonatomic, readonly) uint score;
 
 - (void) chooseTileAtIndex:(uint) index;
 - (Tile *) tileAtIndex:(uint) index;
