@@ -82,6 +82,7 @@ int const MAX_COLORED_VALUE = 4096;
 - (void) newGame {
    self.tiles = nil;
    self.numChosen = 0;
+   self.score = 0;
 }
 
 - (void) chooseTileAtIndex:(uint)index {
