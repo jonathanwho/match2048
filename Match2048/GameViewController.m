@@ -19,11 +19,16 @@
 
 @interface GameViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *tileButtons;
-@property (nonatomic, strong) TileMatchingGame *game;
 @property (weak, nonatomic) IBOutlet UIButton *startNewGameButton;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel; 
-@property (nonatomic) int highScore;
 @property (weak, nonatomic) IBOutlet UILabel *highScoreLabel;
+@property (weak, nonatomic) IBOutlet UIView *tileContainer;
+
+// Game model.
+@property (nonatomic, strong) TileMatchingGame *game;
+
+// The device highscore.
+@property (nonatomic) int highScore;
 @end
 
 @implementation GameViewController
@@ -85,12 +90,14 @@
       backgroundColor = [self.game getBackgroundColorForValue:tile.value];
       animationSpeed = 0;
     }
+    
     [button setTitleColor:[self.game getTitleColorForValue:tile.value] forState:UIControlStateNormal];
     [UIView animateWithDuration:animationSpeed animations:^{
       button.backgroundColor = backgroundColor;
     }];
     [button setTitle:title forState:UIControlStateNormal];
   }
+  
   self.scoreLabel.text = [NSString stringWithFormat:SCORE_FORMAT, self.game.score];
   if (self.game.isOver && (int)self.game.score > self.highScore) {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

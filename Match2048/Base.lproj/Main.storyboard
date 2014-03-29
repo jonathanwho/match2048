@@ -278,7 +278,7 @@
                         <outlet property="highScoreLabel" destination="L5Y-28-MlE" id="w8l-Bp-grN"/>
                         <outlet property="scoreLabel" destination="Pry-E5-ajx" id="SRm-0b-vli"/>
                         <outlet property="startNewGameButton" destination="1kO-Mh-Rg5" id="mtd-0h-9CV"/>
-                        <outlet property="tileContainer" destination="au6-Yx-eR6" id="QJB-ua-gxe"/>
+                        <outlet property="tileContainer" destination="au6-Yx-eR6" id="Fmg-uq-cSM"/>
                         <outletCollection property="tileButtons" destination="3sd-Zx-f6Y" id="KV1-Qx-I92"/>
                         <outletCollection property="tileButtons" destination="nug-Vj-mIO" id="Cf3-8p-DEV"/>
                         <outletCollection property="tileButtons" destination="hfq-Bv-W1p" id="nTL-t7-s5t"/>

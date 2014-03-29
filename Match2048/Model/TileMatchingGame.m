@@ -48,9 +48,8 @@
   return _backgroundColors;
 }
 
-/**
- * Creates an array of tiles from an array of integers.
- */
+
+// Creates an array of tiles from an array of integers.
 - (NSMutableArray *) tilesWithValues:(NSArray *) values {
   NSMutableArray *data = [[NSMutableArray alloc] init];
   for (NSNumber *value in values)
@@ -58,6 +57,7 @@
   return data;
 }
 
+// Returns a shuffled version of |array|.
 - (NSArray *) shuffleArray:(NSArray *)array {
   NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:array];
   
@@ -69,6 +69,7 @@
   return [NSArray arrayWithArray:temp];
 }
 
+// Initializes a randomized array of tiles based on a set numbers.
 - (NSMutableArray *) tiles {
   if (!_tiles) { // Default board.
     NSArray *values = @[@1024, @2, @4, @8,
@@ -89,7 +90,9 @@
 
 - (void) chooseTileAtIndex:(uint)index {
   Tile *tile = [self.tiles objectAtIndex:index];
-  if (self.numChosen == MAX_NUM_CHOSEN) {  // Ensures both tiles are displayed before clearing
+  
+  // Ensures both tiles are displayed before clearing
+  if (self.numChosen == MAX_NUM_CHOSEN) {
     self.numChosen = 0;
     for (Tile *other in self.tiles)
       if (other.isChosen)
@@ -97,7 +100,6 @@
   }
   
   self.numChosen++;
-  
   if (tile.isChosen) {
     tile.chosen = false;
   } else if (self.numChosen < MAX_NUM_CHOSEN) {
@@ -106,12 +108,12 @@
     for (Tile *other in self.tiles) {
       if (other.isChosen) {
         if (other.value == tile.value) {
-          if (tile.value * 2 == WINNING_TILE)
-            self.over = YES; 
-          self.score += (tile.value *= 2);
+          if (tile.value * 2 == WINNING_TILE) // Wins game
+            self.over = YES;
+          self.score += (tile.value *= 2); // Add Points
           other.value = DEFAULT_NEW_VALUE;
         } else {
-          self.score -= other.value;
+          self.score -= other.value; // Deduct Points
         }
       }
     }

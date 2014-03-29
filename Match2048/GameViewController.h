@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @class TileMatchingGame;
 @interface GameViewController : UIViewController
+
+// Selects tile and then updates UI.
 - (IBAction)onTileClick:(id)sender;
-@property (weak, nonatomic) IBOutlet UIView *tileContainer;
 @end
