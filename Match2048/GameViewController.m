@@ -77,7 +77,6 @@
       backgroundColor = [self.game getBackgroundColorForValue:tile.value];
       animationSpeed = 0;
     }
-    // TODO: Title color only needs to be set once
     [button setTitleColor:[self.game getTitleColorForValue:tile.value] forState:UIControlStateNormal];
     [UIView animateWithDuration:animationSpeed animations:^{
       button.backgroundColor = backgroundColor;
