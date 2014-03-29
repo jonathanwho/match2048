@@ -49,7 +49,6 @@
 
 - (IBAction)onTileClick:(UIButton *)sender {
    int index = [self.tileButtons indexOfObject:sender];
-   NSLog(@"%d", index);
    [self.game chooseTileAtIndex:index];
    [self updateUI];
 }
@@ -74,7 +73,7 @@
       [button setTitleColor:[self.game getTitleColorForValue:tile.value] forState:UIControlStateNormal];
       [UIView animateWithDuration:animationSpeed animations:^{
          button.backgroundColor = backgroundColor;
-      }]; 
+      }];
       [button setTitle:title forState:UIControlStateNormal];
       self.scoreLabel.text = [NSString stringWithFormat:@"SCORE: %d", self.game.score];
    }
