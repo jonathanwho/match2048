@@ -25,11 +25,18 @@
 - (NSDictionary *) backgroundColors {
    if (!_backgroundColors) {
       _backgroundColors = @{
-         @16:[[UIColor alloc] initWithRed:245/255.0 green:148/255.0 blue:98/255.0 alpha:1],
          @2:[[UIColor alloc] initWithRed:238/255.0 green:228/255.0 blue:218/255.0 alpha:1],
+         @4:[[UIColor alloc] initWithRed:237/255.0 green:224/255.0 blue:200/255.0 alpha:1],
+         @8:[[UIColor alloc] initWithRed:242/255.0 green:177/255.0 blue:121/255.0 alpha:1],
+         @16:[[UIColor alloc] initWithRed:245/255.0 green:148/255.0 blue:98/255.0 alpha:1],
+         @32:[[UIColor alloc] initWithRed:246/255.0 green:124/255.0 blue:95/255.0 alpha:1],
          @64:[[UIColor alloc] initWithRed:246/255.0 green:94/255.0 blue:59/255.0 alpha:1],
          @128:[[UIColor alloc] initWithRed:237/255.0 green:207/255.0 blue:114/255.0 alpha:1],
-         @8:[[UIColor alloc] initWithRed:242/255.0 green:177/255.0 blue:121/255.0 alpha:1]};
+         @512:[[UIColor alloc] initWithRed:237/255.0 green:200/255.0 blue:80/255.0 alpha:1],
+         @256:[[UIColor alloc] initWithRed:237/255.0 green:204/255.0 blue:97/255.0 alpha:1],
+         @1024:[[UIColor alloc] initWithRed:237/255.0 green:197/255.0 blue:63/255.0 alpha:1],
+         @2048:[[UIColor alloc] initWithRed:237/255.0 green:194/255.0 blue:46/255.0 alpha:1],
+         @4096:[[UIColor alloc] initWithRed:60/255.0 green:58/255.0 blue:50/255.0 alpha:1],};
    }
    return _backgroundColors;
 }
@@ -47,17 +54,18 @@
 }
 
 - (NSMutableArray *) tiles {
-   if (!_tiles) {
+   if (!_tiles) { // Default board.
       NSArray *values = @[@1024, @2, @4, @8,
                           @16, @32, @64, @128,
-                          @256, @512, @2, @2048,
-                          @4096, @8182, @16, @32];
+                          @256, @512, @2, @2,
+                          @4096, @2, @16, @32];
       _tiles = [self tilesWithValues:values];
    }
    return _tiles;
 }
 
 - (instancetype) initWithArray:(NSArray *)array {
+   //  TODO: Randomize from GameViewController
    self = [super init];
    self.tiles = [self tilesWithValues:array];
    return self;
@@ -94,6 +102,8 @@
 }
 
 - (UIColor *) getBackgroundColorForValue:(uint) value {
+   if (value > 4096)
+      value = 4096;
    UIColor *color = [self.backgroundColors objectForKey:[[NSNumber alloc] initWithInt:value]];
    if (!color)
       color =  [[UIColor alloc] initWithRed:238/255.0 green:228/255.0 blue:218/255.0 alpha:1];
@@ -101,7 +111,7 @@
 }
 
 - (UIColor *) getTitleColorForValue:(uint) value {
-   if (value == 8 || value == 16 || value == 64 || value == 128)
+   if (value >= 8)
       return [UIColor whiteColor];
    return [[UIColor alloc] initWithRed:119/255.0 green:110/255.0 blue:101/255.0 alpha:1.0];
 }
