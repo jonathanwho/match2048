@@ -55,22 +55,28 @@
 }
 
 - (void) updateUI {
+   float animationSpeed;
    for (UIButton *button in self.tileButtons) {
       int index = [self.tileButtons indexOfObject:button];
       Tile *tile = [self.game tileAtIndex:index];
       NSString *title = @"";
+      animationSpeed = 0.75;
       
       if (self.game.numChosen <= 2 && tile.isChosen)
          title = [NSString stringWithFormat:@"%d", tile.value];
       
       UIColor *backgroundColor = self.game.defaultColor;
-      if (tile.isChosen)
+      if (tile.isChosen) {
          backgroundColor = [self.game getBackgroundColorForValue:tile.value];
+         animationSpeed = 0;
+      }
       // TODO: Title color only needs to be set once
       [button setTitleColor:[self.game getTitleColorForValue:tile.value] forState:UIControlStateNormal];
-      [button setBackgroundColor:backgroundColor];
+      [UIView animateWithDuration:animationSpeed animations:^{
+         button.backgroundColor = backgroundColor;
+      }]; 
       [button setTitle:title forState:UIControlStateNormal];
-      [self.scoreLabel setText:[NSString stringWithFormat:@"SCORE: %d", self.game.score]];
+      self.scoreLabel.text = [NSString stringWithFormat:@"SCORE: %d", self.game.score];
    }
 }
 @end
