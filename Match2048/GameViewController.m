@@ -13,20 +13,31 @@
 @interface GameViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *tileButtons;
 @property (nonatomic, strong) TileMatchingGame *game;
+@property (weak, nonatomic) IBOutlet UIButton *startNewGameButton;
 @end
 
 @implementation GameViewController
+
+- (IBAction)startNewGame:(UIButton *)sender {
+   [self.game newGame];
+   [self updateUI];
+}
+
 
 - (TileMatchingGame *) game {
    if (!_game) _game = [[TileMatchingGame alloc] init];
    return _game;
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
    self.tileContainer.layer.cornerRadius = 5.0;
    self.tileContainer.layer.masksToBounds = YES;
+   
+   self.startNewGameButton.layer.cornerRadius = 5.0;
+   self.startNewGameButton.layer.masksToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning

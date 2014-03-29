@@ -15,6 +15,9 @@
 @property(nonatomic, strong, readwrite) UIColor *defaultColor;
 @end
 
+int const MIN_COLORED_VALUE = 8;
+int const MAX_COLORED_VALUE = 4096;
+
 @implementation TileMatchingGame
 - (UIColor *) defaultColor {
    if (!_defaultColor)
@@ -53,22 +56,31 @@
    return data;
 }
 
+- (NSArray *) shuffleArray:(NSArray *)array {
+   NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:array];
+   
+   for(NSUInteger i = [array count]; i > 1; i--) {
+      NSUInteger j = arc4random_uniform(i);
+      [temp exchangeObjectAtIndex:i-1 withObjectAtIndex:j];
+   }
+   
+   return [NSArray arrayWithArray:temp];
+}
+
 - (NSMutableArray *) tiles {
    if (!_tiles) { // Default board.
       NSArray *values = @[@1024, @2, @4, @8,
                           @16, @32, @64, @128,
                           @256, @512, @2, @2,
-                          @4096, @2, @16, @32];
-      _tiles = [self tilesWithValues:values];
+                          @2, @2, @16, @32];
+      _tiles = [self tilesWithValues:[self shuffleArray:values]];
    }
    return _tiles;
 }
 
-- (instancetype) initWithArray:(NSArray *)array {
-   //  TODO: Randomize from GameViewController
-   self = [super init];
-   self.tiles = [self tilesWithValues:array];
-   return self;
+- (void) newGame {
+   self.tiles = nil;
+   self.numChosen = 0;
 }
 
 - (void) chooseTileAtIndex:(uint)index {
@@ -102,8 +114,8 @@
 }
 
 - (UIColor *) getBackgroundColorForValue:(uint) value {
-   if (value > 4096)
-      value = 4096;
+   if (value > MAX_COLORED_VALUE)
+      value = MAX_COLORED_VALUE;
    UIColor *color = [self.backgroundColors objectForKey:[[NSNumber alloc] initWithInt:value]];
    if (!color)
       color =  [[UIColor alloc] initWithRed:238/255.0 green:228/255.0 blue:218/255.0 alpha:1];
@@ -111,7 +123,7 @@
 }
 
 - (UIColor *) getTitleColorForValue:(uint) value {
-   if (value >= 8)
+   if (value >= MIN_COLORED_VALUE)
       return [UIColor whiteColor];
    return [[UIColor alloc] initWithRed:119/255.0 green:110/255.0 blue:101/255.0 alpha:1.0];
 }

@@ -115,7 +115,7 @@
                   symbolName = "-[Tile value]"
                   moduleName = "Match2048"
                   urlString = "file:///Users/jmiranda/Google%20Drive/xcode/Match2048/Match2048/Model/Tile.h"
-                  timestampString = "417748155.459192"
+                  timestampString = "417761889.17108"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -129,7 +129,7 @@
                   symbolName = "-[Tile setValue:]"
                   moduleName = "Match2048"
                   urlString = "file:///Users/jmiranda/Google%20Drive/xcode/Match2048/Match2048/Model/Tile.h"
-                  timestampString = "417748155.459592"
+                  timestampString = "417761889.171582"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -153,6 +153,22 @@
             endingLineNumber = "14"
             landmarkName = "@implementation Tile"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Match2048/Model/TileMatchingGame.m"
+            timestampString = "417763315.721056"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "-tiles"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
