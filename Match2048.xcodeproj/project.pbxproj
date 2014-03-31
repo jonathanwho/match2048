@@ -15,7 +15,6 @@
 		FA9768E318E61650007FCC19 /* JMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9768E218E61650007FCC19 /* JMAppDelegate.m */; };
 		FA9768E618E61650007FCC19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9768E418E61650007FCC19 /* Main.storyboard */; };
 		FA9768E918E61650007FCC19 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9768E818E61650007FCC19 /* GameViewController.m */; };
-		FA9768EB18E61650007FCC19 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA9768EA18E61650007FCC19 /* Images.xcassets */; };
 		FA9768F218E61650007FCC19 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9768F118E61650007FCC19 /* XCTest.framework */; };
 		FA9768F318E61650007FCC19 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9768D218E61650007FCC19 /* Foundation.framework */; };
 		FA9768F418E61650007FCC19 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9768D618E61650007FCC19 /* UIKit.framework */; };
@@ -23,6 +22,7 @@
 		FA9768FE18E61650007FCC19 /* Match2048Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9768FD18E61650007FCC19 /* Match2048Tests.m */; };
 		FA97690C18E636BA007FCC19 /* TileMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = FA97690B18E636BA007FCC19 /* TileMatchingGame.m */; };
 		FA97691318E63F2F007FCC19 /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = FA97691218E63F2F007FCC19 /* Tile.m */; };
+		FAA8959F18E94764001D6109 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA8959E18E94764001D6109 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,6 @@
 		FA9768E518E61650007FCC19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA9768E718E61650007FCC19 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		FA9768E818E61650007FCC19 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
-		FA9768EA18E61650007FCC19 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FA9768F018E61650007FCC19 /* Match2048Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Match2048Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9768F118E61650007FCC19 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FA9768F918E61650007FCC19 /* Match2048Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Match2048Tests-Info.plist"; sourceTree = "<group>"; };
@@ -59,6 +58,7 @@
 		FA97690B18E636BA007FCC19 /* TileMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TileMatchingGame.m; path = Model/TileMatchingGame.m; sourceTree = "<group>"; };
 		FA97691118E63F2F007FCC19 /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tile.h; path = Model/Tile.h; sourceTree = "<group>"; };
 		FA97691218E63F2F007FCC19 /* Tile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tile.m; path = Model/Tile.m; sourceTree = "<group>"; };
+		FAA8959E18E94764001D6109 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +122,7 @@
 				FA9768E418E61650007FCC19 /* Main.storyboard */,
 				FA9768E718E61650007FCC19 /* GameViewController.h */,
 				FA9768E818E61650007FCC19 /* GameViewController.m */,
-				FA9768EA18E61650007FCC19 /* Images.xcassets */,
+				FAA8959E18E94764001D6109 /* Images.xcassets */,
 				FA9768D918E61650007FCC19 /* Supporting Files */,
 			);
 			path = Match2048;
@@ -246,7 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA9768EB18E61650007FCC19 /* Images.xcassets in Resources */,
+				FAA8959F18E94764001D6109 /* Images.xcassets in Resources */,
 				FA9768DD18E61650007FCC19 /* InfoPlist.strings in Resources */,
 				FA9768E618E61650007FCC19 /* Main.storyboard in Resources */,
 			);
@@ -337,6 +337,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -353,9 +354,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.0;
 			};
 			name = Debug;
 		};
@@ -375,6 +376,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -385,8 +387,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				SDKROOT = iphoneos;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos7.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -396,10 +398,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Match2048/Match2048-Prefix.pch";
 				INFOPLIST_FILE = "Match2048/Match2048-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -409,10 +414,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Match2048/Match2048-Prefix.pch";
 				INFOPLIST_FILE = "Match2048/Match2048-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
