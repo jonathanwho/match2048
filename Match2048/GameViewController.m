@@ -20,6 +20,7 @@
 @interface GameViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *tileButtons;
 @property (weak, nonatomic) IBOutlet UIButton *startNewGameButton;
+@property (weak, nonatomic) IBOutlet UIButton *hintButton;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel; 
 @property (weak, nonatomic) IBOutlet UILabel *highScoreLabel;
 @property (weak, nonatomic) IBOutlet UIView *tileContainer;
@@ -64,10 +65,12 @@
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   self.highScore = [defaults integerForKey:HIGHSCORE_KEY];
   [self.highScoreLabel setText:[NSString stringWithFormat:HIGHSCORE_FORMAT, self.highScore]];
-  self.tileContainer.layer.cornerRadius = LARGE_CORNER_RADIUS;
-  self.tileContainer.layer.masksToBounds = YES;
-  self.startNewGameButton.layer.cornerRadius = LARGE_CORNER_RADIUS;
-  self.startNewGameButton.layer.masksToBounds = YES;
+  NSArray *smoothCorners = @[self.tileContainer, self.startNewGameButton, self.hintButton];
+  
+  for (id flatCorner in smoothCorners) {
+    ((UIView *)flatCorner).layer.cornerRadius = LARGE_CORNER_RADIUS;
+    ((UIView *)flatCorner).layer.masksToBounds = YES;
+  }
   
   for (UIButton *button in self.tileButtons) {
     button.layer.cornerRadius = SMALL_CORNER_RADIUS;
