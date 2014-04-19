@@ -15,4 +15,6 @@ Game ends when you want it to (winning not implemented :)).
 
 SCORE: Adds any doubled tiles and subtracts any mismatched tile.
 
+TODO: Add Animations (for matches, new high scores), Testing
+
 Credit to 2048 by Gabriele Cirulli, 1024 by Veewo Studio and to Threes by Asher Vollmer.
